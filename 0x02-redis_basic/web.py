@@ -26,11 +26,11 @@ def get_page(url: str) -> str:
         if resp is None:
             # If the cached value has expired or been evicted, fetch the URL again
             resp = requests.get(url)
-            rc.setex(cached_key, 10, resp.text)
+            rc.setex(cached_key, 10, resp.text
         else:
             # If the cached value is still valid, return it
             resp = resp.decode()
     return resp
 
 if __name__ == "__main__":
-    print(get_page('http://slowwly.robertomurray.co.uk/delay/5000/url/http://www.google.com'))
+    print(get_page('http://slowwly.robertomurray.co.uk'))
